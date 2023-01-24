@@ -1,17 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+import Detail from './components/Detail';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/add' element={<Home />} /> */}
-          {/* <Route path='/puppies/:id' element={<Puppy />} /> */}
+          <Route path='/milk/:id' element={<Detail />} />
         </Routes>
       </Router>
     </div>

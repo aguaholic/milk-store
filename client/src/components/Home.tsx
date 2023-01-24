@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { AppContext, ContextData } from '../AppContext';
 import Cards from './Cards';
+import Counter from './Counter';
 import Header from './Header';
 
 const Home = () => {
@@ -12,7 +13,6 @@ const Home = () => {
       await fetch('/api/milk')
         .then(res => res.json())
         .then(data => setMilkData(data.db));
-      // .then(data => console.log('ohoiheoihe', data.db));
     };
 
     getMilkData();
@@ -20,8 +20,8 @@ const Home = () => {
 
   return (
     <div className='bg-rose-100'>
-      {/* <div className='bg-rose-100'> */}
       <Header title='the milk shop' />
+      <Counter />
       <Cards />
     </div>
   )
