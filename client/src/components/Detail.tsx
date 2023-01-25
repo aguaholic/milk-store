@@ -9,7 +9,6 @@ const Detail = () => {
   const { id } = useParams();
 
   const singleMilkInfo = milkData?.results.find(milk => milk.id === id);
-  console.log(singleMilkInfo)
   const highStorage = singleMilkInfo && singleMilkInfo.storage > 15;
 
   return (

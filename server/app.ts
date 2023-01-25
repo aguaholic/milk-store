@@ -1,3 +1,4 @@
+import { count } from 'console';
 import express, { Request, Response, Application } from 'express';
 import * as db from './db.json';
 
@@ -28,7 +29,10 @@ app.get('/api/milk', (req: Request, res: Response) => {
       const dbItems = db.results.map(item => item);
       const filtered = dbItems.filter(item => item.type.toLowerCase() === adjustedFilter);
       //@ts-ignore
-      response = filtered as Filtered;
+      response = {
+        count: 99,
+        results: filtered,
+      }
     }
 
     res

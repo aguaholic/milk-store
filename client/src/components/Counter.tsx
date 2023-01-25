@@ -5,7 +5,7 @@ const Counter = () => {
   const { milkData } = useContext(AppContext) as ContextData;
 
   return (
-    <div className='bg-rose-100 text-left font-medium'>
+    <div className='bg--100 text-left font-medium'>
       {milkData?.count} products
     </div>
   )

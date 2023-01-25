@@ -4,35 +4,22 @@ import { MilkData } from './types';
 export interface ContextData {
   milkData: MilkData | undefined,
   setMilkData: React.Dispatch<React.SetStateAction<MilkData | undefined>>,
+  isFilterOpen: boolean | undefined,
+  setIsFilterOpen: React.Dispatch<React.SetStateAction<boolean | undefined>>,
 }
 
 const AppContext = createContext<ContextData | null>(null);
 
 const AppProvider = ({ children }: any) => {
   const [milkData, setMilkData] = useState<MilkData | undefined>();
-
-  // {
-  //   "count": 99,
-  //   "results": [
-  //     {
-  //       "name": "Dillion's unequaled cashew milk",
-  //       "type": "Cashew milk",
-  //       "storage": 99,
-  //       "id": "301d5dcf-a2a8-4a34-b26b-efcaa103963c"
-  //     },
-  //     {
-  //       "name": "Dillion's unequaled cashew milk",
-  //       "type": "Cashew milk",
-  //       "storage": 99,
-  //       "id": "301d5dcf-a2a8-4a34-b26b-efcaa103963c"
-  //     },
-  //   ]
-  // }
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean | undefined>(false);
 
   return (
     <AppContext.Provider value={{
       milkData,
       setMilkData,
+      isFilterOpen,
+      setIsFilterOpen,
     }}>
       {children}
     </AppContext.Provider>
