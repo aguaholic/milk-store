@@ -30,22 +30,24 @@ const Home = () => {
   }
 
   return (
-    <div className='bg-rose-100'>
+    <div>
       <Header title='the milk shop' />
-      <Counter />
-      <div className='flex justify-between mx-3'>
-        <Search />
-        <div className='flex flex-col'>
-          <button
-            className='text-gray-900 hover:text-lg font-medium text-sm'
-            onClick={handleOpenFilter}
-          >
-            Filter
-          </button>
-          {isFilterOpen && <Modal title='Milk types' handleCloseModal={handleCloseModal}><Filter /></Modal>}
+      <div className='bg-rose-100 px-2 md:px-3 lg:px-24 mt-5'>
+        <Counter />
+        <div className='flex justify-between mt-3'>
+          <Search />
+          <div className='flex flex-col'>
+            <button
+              className='text-gray-900 hover:text-lg font-medium text-lg'
+              onClick={handleOpenFilter}
+            >
+              Filter
+            </button>
+            {isFilterOpen && <Modal title='Milk types' handleCloseModal={handleCloseModal}><Filter /></Modal>}
+          </div>
         </div>
+        <Cards />
       </div>
-      <Cards />
     </div>
   )
 }
