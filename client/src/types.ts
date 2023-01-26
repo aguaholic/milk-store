@@ -8,7 +8,6 @@ export interface Milk {
 export interface MilkData {
   results: Milk[],
   count: number,
+  next?: number,
+  previous?: number,
 }
-// export interface CheckData {
-//   isChecked: boolean,
-// }

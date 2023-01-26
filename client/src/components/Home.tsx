@@ -5,6 +5,7 @@ import Counter from './Counter';
 import Filter from './Filter';
 import Header from './Header';
 import Modal from './Modal';
+import Pagination from './Pagination';
 import Search from './Search';
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     const getMilkData = async () => {
-      await fetch('/api/milk')
+      await fetch('/api/milk?page=1')
         .then(res => res.json())
         .then(data => setMilkData(data.db));
     };
@@ -47,6 +48,7 @@ const Home = () => {
           </div>
         </div>
         <Cards />
+        {!isFilterOpen && <Pagination />}
       </div>
     </div>
   )
