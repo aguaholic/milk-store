@@ -21,6 +21,7 @@ app.get('/api/hello', (_req: Request, res: Response) => {
 app.get('/api/milk', (req: Request, res: Response) => {
   try {
     const filter = req.query.filter as string;
+    const searchQuery = req.query.search as string || '';
 
     let response = db;
 
@@ -28,10 +29,22 @@ app.get('/api/milk', (req: Request, res: Response) => {
       const adjustedFilter = filter.replace('-', ' ').toLowerCase();
       const dbItems = db.results.map(item => item);
       const filtered = dbItems.filter(item => item.type.toLowerCase() === adjustedFilter);
-      //@ts-ignore
       response = {
         count: 99,
         results: filtered,
+      }
+    }
+
+    if (searchQuery) {
+      const adjustedQuery = searchQuery.replaceAll('-', ' ').toLowerCase();
+      const regex = new RegExp(adjustedQuery, 'i');
+
+      const dbItems = db.results.map(item => item);
+      const filteredQuery = dbItems.filter(item => item.name.match(regex));
+
+      response = {
+        count: 99,
+        results: filteredQuery,
       }
     }
 

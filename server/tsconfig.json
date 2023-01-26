@@ -4,6 +4,9 @@
     "target": "es6",
     "rootDir": "./",
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": [
+      "ES2021.String"
+    ]
   }
 }
