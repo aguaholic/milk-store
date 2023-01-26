@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { AppContext, ContextData } from '../AppContext';
+import RangeSlider from './RangeSlider';
 
 const Detail = () => {
   const { milkData } = useContext(AppContext) as ContextData;
@@ -21,7 +22,7 @@ const Detail = () => {
       </Link>
       <div className='flex justify-between w-2/4 m-auto my-28'>
         <div className='w-full bg-white'>
-          <img className='w-2/3 m-auto py-5 ' src='https://i.imgur.com/w6699FQ.png' alt={singleMilkInfo?.name} />
+          <img className='w-2/3 m-auto py-5' src='https://i.imgur.com/w6699FQ.png' alt={singleMilkInfo?.name} />
         </div>
         <div className='flex flex-col justify-between px-4 w-full'>
           <div>
@@ -41,7 +42,7 @@ const Detail = () => {
               </p>
             }
           </div>
-          {/* <Slider /> */}
+          <RangeSlider max={singleMilkInfo?.storage} />
           <div>
             <button
               type='button'
