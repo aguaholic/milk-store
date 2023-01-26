@@ -5,7 +5,7 @@ interface RangeSliderProps {
 }
 
 const RangeSlider = ({ max }: RangeSliderProps) => {
-  const [orderAmount, setOrderAmount] = useState<number>(1)
+  const [orderAmount, setOrderAmount] = useState<number>(1);
 
   const handleAmount = (event: React.ChangeEvent<HTMLInputElement>) => {
     setOrderAmount(Number(event.target.value));

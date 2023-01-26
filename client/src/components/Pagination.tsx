@@ -17,8 +17,6 @@ const Pagination = () => {
     getPagination(1)
   }, []);
 
-  console.log(currentPage);
-
   const handlePrevious = () => {
     setCurrentPage(currentPage - 1);
     getPagination(currentPage);
@@ -79,4 +77,4 @@ const Pagination = () => {
   )
 }
 
-export default Pagination
+export default Pagination;
